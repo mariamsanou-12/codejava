@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class Point {
+    String nom;
+    double abcs;
+
+    public Point(String nom, double abcs) {
+        this.nom = nom;
+        this.abcs = abcs;
+    }
+
+    public void Afficher() {
+        System.out.println("Nom du point: " + nom + "\nAbscisse: " + abcs);
+    }
+
+    public void Translate(float val) {
+        abcs += val;
+    }
+}
+
+class Geo {
+    public static void main(String[] args) {
+        Point A;
+        Scanner lire = new Scanner(System.in);
+        
+        // Demander le nom du point
+        System.out.println("Entrer le nom du point svp");
+        String nom = lire.nextLine();
+        
+        // Demander l'abscisse du point
+        System.out.println("L'abscisse vaut combien? ");
+        double abcs = lire.nextDouble();
+        
+        // Créer un nouvel objet Point
+        A = new Point(nom, abcs);
+        
+        // Afficher les informations du point
+        A.Afficher();
+        
+        // Demander la valeur de translation
+        System.out.println("Quelle est la valeur de translation?");
+        float val = lire.nextFloat();
+        
+        // Effectuer la translation et afficher à nouveau le point
+        A.Translate(val);
+        A.Afficher();  // Affichage après translation
+    }
+}
